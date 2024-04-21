@@ -116,7 +116,13 @@ REST_FRAMEWORK = {
     'DEFAULT_VERSION': 'v1',
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    f'http://{os.getenv("CLIENT_IP")}:{os.getenv("CLIENT_PORT")}',
+    'http://localhost:4200' # remove later
+]
+
+# for cookies
+CORS_ALLOW_CREDENTIALS = True
 
 AUTH_USER_MODEL = 'app.User'
 
@@ -142,4 +148,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
