@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from ...models import Plant
-from .serializers import PlantSerializer
+from .serializers import PlantSerializer, UserSerializer
 
 
 @api_view(['GET', 'POST'])
@@ -34,3 +34,12 @@ def plant_detail(request, id):
     elif request.method == 'DELETE':
         plant.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+@api_view(['POST'])
+def register(request):
+    serializer = UserSerializer(data=request.data)
+    serializer.is_valid(raise_exception=True)
+    serializer.save()
+    return Response(serializer.data, status=status.HTTP_201_CREATED)
+   
