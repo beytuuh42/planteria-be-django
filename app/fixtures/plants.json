@@ -1,0 +1,82 @@
+[
+  {
+    "model": "app.plant",
+    "pk": 1,
+    "fields": {
+      "name": "Bird's Nest Fern",
+      "photo": "images/plants/1.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 2,
+    "fields": {
+      "name": "Zebra Plant",
+      "photo": "images/plants/2.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 3,
+    "fields": {
+      "name": "Majesty Palm",
+      "photo": "images/plants/3.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 4,
+    "fields": {
+      "name": "Prayer Plant 'Beauty Kim",
+      "photo": "images/plants/4.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 5,
+    "fields": {
+      "name": "Monstera Swiss Cheese Plant",
+      "photo": "images/plants/5.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 6,
+    "fields": {
+      "name": "Blue Star Fern",
+      "photo": "images/plants/6.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 7,
+    "fields": {
+      "name": "Boston Fern",
+      "photo": "images/plants/7.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 8,
+    "fields": {
+      "name": "Algerian Ivy",
+      "photo": "images/plants/8.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 9,
+    "fields": {
+      "name": "Tricolor Hoya 'Krimson Queen",
+      "photo": "images/plants/9.jpg"
+    }
+  },
+  {
+    "model": "app.plant",
+    "pk": 10,
+    "fields": {
+      "name": "Corkscrew Rush",
+      "photo": "images/plants/10.jpg"
+    }
+  }
+]
