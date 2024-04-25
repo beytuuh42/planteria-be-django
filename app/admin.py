@@ -1,6 +1,11 @@
 
 from django.contrib import admin
-from .models import Plant
+from django.contrib.auth.admin import UserAdmin
+from .models import Plant, User
 
 admin.site.register(Plant)
-# Register your models here.
+
+@admin.register(User)
+class CustomUserAdmin(UserAdmin):
+    ordering = ("email", "name")
+    list_filter = ('is_active', 'is_superuser')
