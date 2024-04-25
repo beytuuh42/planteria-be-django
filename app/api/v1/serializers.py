@@ -4,7 +4,7 @@ from ...models import Plant, User
 class PlantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Plant
-        fields = ['id', 'name']
+        fields = ['id', 'name', 'photo']
         
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

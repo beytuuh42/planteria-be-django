@@ -6,6 +6,10 @@ from django.contrib.auth.models import AbstractUser, BaseUserManager
 
 class Plant(models.Model):
     name = models.CharField(max_length=55)
+    photo = models.ImageField(upload_to='images/plants')
+    
+    def __str__(self) -> str:
+        return self.name
 
 
 class UserManager(BaseUserManager):
