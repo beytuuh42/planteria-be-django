@@ -1,14 +1,12 @@
-import os
+
 from django.shortcuts import get_object_or_404
-from django.http import HttpResponse
+from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
-from ...models import Plant, User, PlantImages
+from rest_framework_simplejwt.tokens import RefreshToken
+
+from ...models import Plant, PlantImages
 from .serializers import PlantImagesSerializer, PlantSerializer, UserSerializer
-from rest_framework.exceptions import AuthenticationFailed
-import jwt
-import datetime
 
 
 @api_view(['GET', 'POST'])
@@ -63,41 +61,12 @@ def register(request):
 
 
 @api_view(['POST'])
-def login(request):
-    email = request.data['email']
-    password = request.data['password']
-
-    user = User.objects.filter(email=email).first()
-
-    if user is None or not user.check_password(password):
-        raise AuthenticationFailed(
-            'Wrong credentials!', status.HTTP_401_UNAUTHORIZED)
-
-    now = datetime.datetime.now(datetime.timezone.utc)
-
-    data = {
-        'id': user.id,
-        'exp': now + datetime.timedelta(minutes=60),
-        'iat': now
-    }
-
-    token = jwt.encode(data, os.getenv('DJANGO_JWT_SECRET'), algorithm='HS256')
-
-    res = Response()
-    res.data = {
-        'jwt': token
-    }
-    res.set_cookie(key='jwt', value=token, httponly=True)
-    res.status_code = status.HTTP_200_OK
-
-    return res
-
-
-@api_view(['POST'])
 def logout(request):
-    res = Response()
-    res.delete_cookie('jwt')
-    res.data = {
-        'message': 'success'
-    }
-    return res
+    try:
+        refresh_token = request.data["refresh_token"]
+        token = RefreshToken(refresh_token)
+        token.blacklist()
+
+        return Response(status=status.HTTP_205_RESET_CONTENT)
+    except Exception as e:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
