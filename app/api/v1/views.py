@@ -93,50 +93,6 @@ def login(request):
     return res
 
 
-@api_view(['GET'])
-def token(request):
-    token = request.COOKIES.get('jwt')
-
-    if not token:
-        raise AuthenticationFailed('Unauthenticated!')
-
-    try:
-        data = jwt.decode(token, os.getenv(
-            'DJANGO_JWT_SECRET'), algorithms=['HS256'])
-    except jwt.ExpiredSignatureError:
-        raise AuthenticationFailed('Expired token!')
-
-    user = User.objects.filter(id=data['id']).first()
-
-    serializer = UserSerializer(user)
-
-    res = Response(serializer.data, status=status.HTTP_200_OK)
-
-    return res
-
-
-@api_view(['GET'])
-def user(request):
-    token = request.COOKIES.get('jwt')
-
-    if not token:
-        raise AuthenticationFailed('Unauthenticated!')
-
-    try:
-        data = jwt.decode(token, os.getenv(
-            'DJANGO_JWT_SECRET'), algorithms=['HS256'])
-    except jwt.ExpiredSignatureError:
-        raise AuthenticationFailed('Expired token!')
-
-    user = User.objects.filter(id=data['id']).first()
-
-    serializer = UserSerializer(user)
-
-    res = Response(serializer.data, status=status.HTTP_200_OK)
-
-    return res
-
-
 @api_view(['POST'])
 def logout(request):
     res = Response()
