@@ -8,28 +8,17 @@ class UserManager(BaseUserManager):
             raise ValueError('Users must have an email address')
 
         email = self.normalize_email(email)
-        user = self.model(
-            name=name,
-            email=email,
-            **extra_fields
-        )
-
+        user = self.model(name=name, email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
 
     def create_superuser(self, name, email, password, **extra_fields):
-
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True)
         extra_fields.setdefault("is_active", True)
-
-        user = self.create_user(
-            name=name,
-            email=email,
-            password=password,
-            **extra_fields
-        )
+        
+        user = self.create_user(name=name, email=email, password=password, **extra_fields)
         user.is_admin = True
         user.save(using=self._db)
         return user
@@ -40,8 +29,10 @@ class User(AbstractUser):
     name = models.CharField(max_length=255)
     email = models.EmailField(verbose_name="email address", unique=True,)
     password = models.CharField(max_length=255)
+    
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
+    
     objects = UserManager()
 
     def __str__(self):
