@@ -14,4 +14,7 @@ python manage.py loaddata plants
 echo "Load fixtures for plants_images"
 python manage.py loaddata plants_images
 
+echo "Load fixtures for users"
+python manage.py loaddata users
+
 exec "$@"

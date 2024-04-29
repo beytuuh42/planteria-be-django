@@ -1,0 +1,74 @@
+[
+  {
+    "model": "authentication.user",
+    "pk": 2,
+    "fields": {
+      "last_login": "2024-04-29T15:24:34.413Z",
+      "date_joined": "2024-04-29T12:04:59.847Z",
+      "name": "Mr. Hackerman",
+      "first_name": "Hacker",
+      "last_name": "Man",
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "email": "root@root.com",
+      "password": "pbkdf2_sha256$720000$4ti6N1X2HX8FfTBz2SnlJi$n8XRoW9owqZ7h+GGJnx19ptTkF4T5NbU9akz4KsmRrY=",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authentication.user",
+    "pk": 3,
+    "fields": {
+      "last_login": "2024-04-29T15:24:34.413Z",
+      "date_joined": "2024-04-29T12:04:59.847Z",
+      "name": "Sebastian Judas",
+      "first_name": "Sebastian",
+      "last_name": "Judas",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "email": "sebastian.judas@aldi.de",
+      "password": "pbkdf2_sha256$720000$4ti6N1X2HX8FfTBz2SnlJi$n8XRoW9owqZ7h+GGJnx19ptTkF4T5NbU9akz4KsmRrY=",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authentication.user",
+    "pk": 4,
+    "fields": {
+      "last_login": "2024-04-29T15:24:34.413Z",
+      "date_joined": "2024-04-29T12:04:59.847Z",
+      "name": "Fiona Gallagher",
+      "first_name": "Fiona",
+      "last_name": "Gallagher",
+      "is_superuser": false,
+      "is_staff": true,
+      "is_active": true,
+      "email": "fiona.gallagher@walmart.com",
+      "password": "pbkdf2_sha256$720000$4ti6N1X2HX8FfTBz2SnlJi$n8XRoW9owqZ7h+GGJnx19ptTkF4T5NbU9akz4KsmRrY=",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "authentication.user",
+    "pk": 5,
+    "fields": {
+      "last_login": "2024-04-29T15:24:34.413Z",
+      "date_joined": "2024-04-29T12:04:59.847Z",
+      "name": "Frank Gallagher",
+      "first_name": "Frank",
+      "last_name": "Gallagher",
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": false,
+      "email": "frank.gallagher@alibi.com",
+      "password": "pbkdf2_sha256$720000$4ti6N1X2HX8FfTBz2SnlJi$n8XRoW9owqZ7h+GGJnx19ptTkF4T5NbU9akz4KsmRrY=",
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]
